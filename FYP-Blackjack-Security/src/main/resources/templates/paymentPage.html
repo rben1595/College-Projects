@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="https://www.thymeleaf.org">
+    <title>Payment - Page</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+
+<div th:insert="headers/header.html"></div>
+
+<div class="row d-flex justify-content-center m-5">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center">
+        <form action="/processPayment" method="post" class="was-validated">
+            <div class="mb-3 mt-3">
+                <label for="cardNumber">Card Number:</label>
+                <input type="number" class="form-control" id="cardNumber" placeholder="Enter Card Number..." name="cardNumber" required>
+            </div>
+            <div class="mb-3">
+                <label for="cardExpiryDate">Expiry Date:</label>
+                <input type="date" class="form-control" id="cardExpiryDate" placeholder="Enter Expiry Date..." name="cardExpiryDate" required>
+            </div>
+            <div class="mb-3">
+                <label for="cardCsv">CSV:</label>
+                <input type="number" class="form-control" id="cardCsv" placeholder="Enter CSV..." name="cardCsv" required>
+            </div>
+            <div class="mb-3">
+                <label for="cardHolderName">Card Holder Name:</label>
+                <input type="text" class="form-control" id="cardHolderName" placeholder="Enter Card Holder Nane..." name="cardHolderName" required>
+            </div>
+            <div class="mb-3">
+                <label for="cardType">Card Type:</label>
+                <select class="form-select form-select-lg form-control" id="cardType" name="cardType" required>
+                    <option>Mastercard</option>
+                    <option>American Express</option>
+                    <option>Bank Of Ireland</option>
+                    <option>Barclays</option>
+                    <option>Visa</option>
+                </select>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="storeDetails" name="storeDetails">
+                <label class="form-check-label" for="storeDetails">Store Card Details</label>
+            </div>
+            <button type="submit" class="btn btn-outline-dark">Pay Now</button>
+        </form>
+    </div>
+</div>
+
+<div th:insert="footers/footer.html"></div>
+</body>
+</html>

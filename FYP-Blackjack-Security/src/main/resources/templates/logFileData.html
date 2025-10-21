@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Blackjack Game Logs</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/dataTables.js"></script>
+
+  <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+
+<div th:insert="headers/header.html"></div>
+
+<div class="row d-flex justify-content-center m-5">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center m-5">
+    <h3>FYP - Blackjack - Game Logs</h3>
+  </div>
+</div>
+
+<div class="row d-flex justify-content-center m-5">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center">
+    <table id="example" class="table table-striped" style="width:100%">
+      <thead>
+      <tr>
+        <th th:text="${#ctx.session.fileName}"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="data: ${#ctx.session.fileData}">
+        <td th:text="${data}"></td>
+      </tr>
+      </tbody>
+      <tfoot>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<div th:insert="footers/footer.html"></div>
+</body>
+</html>
